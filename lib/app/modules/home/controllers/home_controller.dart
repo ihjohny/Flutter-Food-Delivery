@@ -1,8 +1,8 @@
-import 'package:flutter_food_delivery/app/data/model/data_model.dart';
 import 'package:get/get.dart';
 
+import '../../../data/catalogue/model/data_model.dart';
+import '../../../data/catalogue/repository/catalogue_repository.dart';
 import '/app/core/base/base_controller.dart';
-import '/app/data/repository/catalogue_repository.dart';
 import '/app/modules/home/model/ui_data.dart';
 
 class HomeController extends BaseController {
@@ -14,10 +14,7 @@ class HomeController extends BaseController {
   UiData? get data => _data.value;
 
   getDetails() {
-    callDataService(
-        _repository.getDetails(),
-        onSuccess: _handleDataResponse
-    );
+    callDataService(_repository.getDetails(), onSuccess: _handleDataResponse);
   }
 
   _handleDataResponse(Data data) {
